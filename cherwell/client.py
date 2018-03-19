@@ -1,7 +1,7 @@
 import json
 import requests
 
-from models import BusinessObjectFields
+from .models import BusinessObjectFields
 
 
 class CherwellClient:

@@ -1,10 +1,11 @@
 import unittest
-import client
+
+from cherwell import client
 
 from unittest.mock import patch
 
 from .utils import mocked_requests_post
-from models import BusinessObject, BusinessObjectFields
+from cherwell.models import BusinessObject, BusinessObjectFields
 
 
 class CherwellClientTestCase(unittest.TestCase):
