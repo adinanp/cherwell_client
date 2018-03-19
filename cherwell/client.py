@@ -44,4 +44,4 @@ class CherwellClient:
             }
         )
 
-        return self.__format_response(response, 'BusObPublicID')
+        return self.__format_response(response, 'busObPublicId')
