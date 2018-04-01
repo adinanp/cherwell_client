@@ -1,6 +1,6 @@
 import unittest
 
-from cherwell import client
+from cherwell.client import CherwellClient
 
 from unittest.mock import patch
 
@@ -10,13 +10,13 @@ from cherwell.models import BusinessObject, BusinessObjectFields
 
 class CherwellClientTestCase(unittest.TestCase):
     def setUp(self):
-        self.cherwell_client = client.CherwellClient('http://cherwell.com.br')
+        self.cherwell_client = CherwellClient('http://cherwell.com.br')
 
     def test_client(self):
         '''
         Should be created
         '''
-        self.assertIsInstance(self.cherwell_client, client.CherwellClient)
+        self.assertIsInstance(self.cherwell_client, CherwellClient)
 
     @patch('requests.post', side_effect=mocked_requests_post)
     def test_client_authentication_with_valid_credentials(self, mock_post):

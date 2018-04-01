@@ -30,6 +30,6 @@ def mocked_requests_post(*args, **kwargs):
     elif urlparse(args[0]).path == '/api/v1/savebusinessobject/':
         h = kwargs['headers']
         if h['Authorization'] == 'Bearer token_maneiro':
-            return MockResponse({'BusObPublicID': 'patututum'}, 200)
+            return MockResponse({'busObPublicId': 'patututum'}, 200)
 
     return MockResponse('Error', 404)
