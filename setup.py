@@ -5,7 +5,7 @@ from distutils.core import setup
 setup(name='cherwell',
     version='0.1',
     author='Adinan Paiva',
-    uthor_email='paiva.adinan@gmail.com',
+    author_email='paiva.adinan@gmail.com',
     description='A Python3 library abstracting the Cherwell API',
     url='https://github.com/adinanp/cherwell_client',
     packages=['cherwell'],
