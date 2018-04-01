@@ -7,7 +7,7 @@ setup(name='cherwell',
     author='Adinan Paiva',
     uthor_email='paiva.adinan@gmail.com',
     description='A Python3 library abstracting the Cherwell API',
-    url='https://gitlab-devops.totvs.com.br/python/cherwell_client',
+    url='https://github.com/adinanp/cherwell_client',
     packages=['cherwell'],
     install_requires=[
         'requests==2.18.4'
