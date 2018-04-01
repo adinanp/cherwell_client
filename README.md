@@ -3,6 +3,7 @@ Cherwell client for python3 applications
 
 
 [![PyPI version](https://badge.fury.io/py/cherwell.svg)](https://badge.fury.io/py/cherwell)
+[![Updates](https://pyup.io/repos/github/adinanp/cherwell_client/shield.svg)](https://pyup.io/repos/github/adinanp/cherwell_client/)
 
 
 ## Usage
