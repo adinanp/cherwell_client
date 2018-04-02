@@ -77,6 +77,12 @@ bo = cherwell_client.save_business_object(token=<YOUR_TOKEN>, data=data)
 For create/save your busines object
 
 
+## Running tests
+
+```bash
+python -m unittest tests.test_client
+```
+
 ## Contributing
 
 This client was made to meet a specific need of my daily life. Obviously this is very simple and does not include 100% of what the cherwell API offers.
