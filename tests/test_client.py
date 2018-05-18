@@ -74,21 +74,6 @@ class CherwellClientTestCase(unittest.TestCase):
         )
         self.assertEqual(bo, 'patututum')
 
-    @patch('requests.post', side_effect=mocked_requests_post)
-    def test_client_save_business_object_with_invalid_data(self, mock_post):
-        '''
-        Should return 500 INTERNAL SERVER ERROR
-        Should return hasError (true) attribute in json body
-        '''
-        data = BusinessObject()
-        data.fields = []
-
-        bo = self.cherwell_client.save_business_object(
-            token='token', data=data
-        )
-
-        self.assertFalse(bo)
-
 
 if __name__ == '__main__':
     unittest.main()

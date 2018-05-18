@@ -13,7 +13,7 @@ class CherwellClient:
 
     def __format_response(self, response, key):
         if response.status_code != 200:
-            return False
+            response.raise_for_status()
         return response.json().get(key, None)
 
     def authenticate(self, gt='password', cid=None, user=None, pwd=None):
