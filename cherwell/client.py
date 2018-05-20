@@ -1,7 +1,10 @@
 import json
 import requests
+import logging
 
 from .models import BusinessObjectFields
+
+logger = logging.getLogger(__name__)
 
 
 class CherwellClient:
@@ -13,6 +16,11 @@ class CherwellClient:
 
     def __format_response(self, response, key):
         if response.status_code != 200:
+            try:
+                logger.warning('Request failed with: %s' % response.json())
+            except:
+                pass
+
             response.raise_for_status()
         return response.json().get(key, None)
 
