@@ -53,3 +53,18 @@ class CherwellClient:
         )
 
         return self.__format_response(response, 'busObPublicId')
+
+    def get_business_object(self, token, BO, public_id):
+        endpoint = self.__build_url('/api/v1/getbusinessobject/busobid/%s/publicid/%s' % (BO, public_id))
+
+        response = requests.get(
+            endpoint,
+            headers={
+                'Authorization': 'Bearer {0}'.format(token),
+                'Content-Type': 'application/json'
+            }
+        )
+
+        response.raise_for_status()
+
+        return response.json()
