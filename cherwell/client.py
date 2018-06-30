@@ -12,7 +12,13 @@ class CherwellClient:
         self.cherwell_server = url
 
     def __build_url(self, endpoint):
-        return '{0}{1}'.format(self.cherwell_server, endpoint)
+        return '%s%s'  % (self.cherwell_server, endpoint)
+
+    def __headers(self, **kwargs):
+        return {
+            'Authorization': 'Bearer %s' % kwargs['token'],
+            'Content-Type': 'application/json'
+        }
 
     def __format_response(self, response, key):
         if response.status_code != 200:
@@ -25,9 +31,9 @@ class CherwellClient:
         return response.json().get(key, None)
 
     def authenticate(self, gt='password', cid=None, user=None, pwd=None):
-        endpoint = self.__build_url('/token')
+        url = self.__build_url('/token')
 
-        response = requests.post(endpoint, data={
+        response = requests.post(url, data={
             'grant_type': gt,
             'client_id': cid,
             'username': user,
@@ -37,33 +43,26 @@ class CherwellClient:
         return self.__format_response(response, 'access_token')
 
     def save_business_object(self, token, data):
-        endpoint = self.__build_url('/api/v1/savebusinessobject/')
+        url = self.__build_url('/api/v1/savebusinessobject/')
 
         data.fields = [
             f.__dict__ for f in data.fields if isinstance(f, BusinessObjectFields)
         ]
 
         response = requests.post(
-            endpoint,
+            url,
             data=json.dumps(data.__dict__),
-            headers={
-                'Authorization': 'Bearer {0}'.format(token),
-                'Content-Type': 'application/json'
-            }
+            headers=self.__headers(token=token)
         )
 
         return self.__format_response(response, 'busObPublicId')
 
     def get_business_object(self, token, BO, public_id):
-        endpoint = self.__build_url('/api/v1/getbusinessobject/busobid/%s/publicid/%s' % (BO, public_id))
-
-        response = requests.get(
-            endpoint,
-            headers={
-                'Authorization': 'Bearer {0}'.format(token),
-                'Content-Type': 'application/json'
-            }
+        url = self.__build_url(
+            '/api/v1/getbusinessobject/busobid/%s/publicid/%s' % (BO, public_id)
         )
+
+        response = requests.get(url, headers=self.__headers(token=token))
 
         response.raise_for_status()
 
