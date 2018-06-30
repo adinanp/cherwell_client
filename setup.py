@@ -3,7 +3,7 @@
 from distutils.core import setup
 
 setup(name='cherwell',
-    version='0.3',
+    version='0.4',
     author='Adinan Paiva',
     author_email='paiva.adinan@gmail.com',
     description='A Python3 library abstracting the Cherwell API',
