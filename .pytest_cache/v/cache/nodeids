@@ -1,0 +1,6 @@
+[
+  "tests/test_client.py::CherwellClientTestCase::test_client",
+  "tests/test_client.py::CherwellClientTestCase::test_client_authentication_with_invalid_credentials",
+  "tests/test_client.py::CherwellClientTestCase::test_client_authentication_with_valid_credentials",
+  "tests/test_client.py::CherwellClientTestCase::test_client_save_busines_object_with_valid_data"
+]
