@@ -10,6 +10,6 @@ setup(name='cherwell',
     url='https://github.com/adinanp/cherwell_client',
     packages=['cherwell'],
     install_requires=[
-        'requests==2.18.4'
+        'requests==2.21.0'
     ],
 )
